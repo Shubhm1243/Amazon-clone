@@ -1,27 +1,41 @@
 //IMPORTS FROM PACKAGES
 const express = require('express')
+const mongoose = require('mongoose')
+
 const app = express()
+const DB = "mongodb+srv://shubhm:qwertyuiop@cluster0.mqhgwft.mongodb.net/?retryWrites=true&w=majority"
+
+const PORT = 3000
 
 
 //IMPORTS FROM OTHER FILES
 
 const authRouter = require("./routes/auth");
-app.use(authRouter)     //MIDDLEWARE
+// const e = require('express');
 
 
+//MIDDLEWARE
+app.use(express.json())
+app.use(authRouter)     
+
+//CONNECTIONS 
+
+mongoose.connect(DB).then(() => {
+  console.log("Connection Successful")
+}).catch((e) => {
+  console.log("Unsuccessful Connection")
+})
 
 //INIT
 
 
-app.get('/index', function (req, res) {
+app.get('/', function (req, res) {
   res.send('Hello World, my name is shubham')
 })
 
 
 
-const PORT = 3000
 
-
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0" ,() => {
   console.log(`Connected at port ${PORT}`);
 })
