@@ -3,7 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 
 const app = express()
-const DB = "mongodb+srv://shubhm:qwertyuiop@cluster0.mqhgwft.mongodb.net/?retryWrites=true&w=majority"
+const DB = "me nai bataunga "
 
 const PORT = 3000
 
