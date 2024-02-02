@@ -1,11 +1,13 @@
 //IMPORTS FROM PACKAGES
 const express = require('express')
 const mongoose = require('mongoose')
+require('dotenv').config();
+
+console.log(process.env.DBsecret); 
 
 const app = express()
 
-const DB = process.env.DB
-
+const DB = process.env.DBsecret
 const PORT = 3000
 
 
